@@ -25,9 +25,16 @@
     .hero {
       height: 100vh;
       width: 100%;
-      background: url('https://firazmohiuddin1.github.io/hotel-site/ChatGPT%20Image%20May%207,%202025,%2002_02_45%20AM.png') no-repeat center center;
-      background-size: contain;
       background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
     }
 
     .container {
@@ -112,8 +119,10 @@
 </head>
 <body>
 
-  <!-- Hero Section with full visible logo background -->
-  <section class="hero"></section>
+  <!-- Hero Section with full-stretched logo image -->
+  <section class="hero">
+    <img src="https://firazmohiuddin1.github.io/hotel-site/ChatGPT%20Image%20May%207,%202025,%2002_02_45%20AM.png" alt="Trivedi Hospitality Logo" />
+  </section>
 
   <!-- Hotel Cards -->
   <main class="container">
