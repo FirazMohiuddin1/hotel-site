@@ -33,16 +33,6 @@
       transition: background-image 1s ease-in-out;
     }
 
-    .hero .left,
-    .hero .right {
-      flex: 1 1 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 1;
-    }
-
     .hero::before {
       content: "";
       position: absolute;
@@ -50,8 +40,18 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(245, 241, 230, 0.96);
+      background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
       z-index: 0;
+    }
+
+    .hero .left,
+    .hero .right {
+      flex: 1 1 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1; /* ensure content is above overlay */
     }
 
     .hero .left img {
@@ -67,13 +67,13 @@
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 20px;
-      color: #2b2e4a;
+      color: #fff;
     }
 
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 30px;
-      color: #444;
+      color: #eee;
       max-width: 500px;
     }
 
@@ -83,13 +83,13 @@
       font-weight: bold;
       border-radius: 6px;
       text-decoration: none;
-      background: #2b2e4a;
-      color: white;
+      background: #fff;
+      color: #2b2e4a;
       transition: 0.3s ease;
     }
 
     .btn:hover {
-      background: #444;
+      background: #ddd;
     }
 
     @media (max-width: 768px) {
@@ -178,6 +178,7 @@
   </style>
 </head>
 <body>
+
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="left">
@@ -192,6 +193,7 @@
 
   <!-- Hotel Cards -->
   <main id="hotels" class="container">
+    <!-- Fairfield -->
     <div class="image-card">
       <img src="ffiimg.jpg" alt="Fairfield Hotel Photo">
       <div class="overlay">
@@ -200,6 +202,7 @@
       </div>
     </div>
 
+    <!-- TownePlace -->
     <div class="image-card">
       <img src="ChatGPT Image May 7, 2025, 04_31_36 AM.png" alt="TownePlace Suites">
       <div class="overlay">
@@ -208,6 +211,7 @@
       </div>
     </div>
 
+    <!-- Four Points -->
     <div class="image-card">
       <img src="ChatGPT fourpts Image May 7, 2025, 04_51_16 AM.png" alt="Four Points by Sheraton">
       <div class="overlay">
@@ -222,6 +226,7 @@
     &copy; 2025 Trivedi Hospitality. Designed for elegance.
   </footer>
 
+  <!-- Background Image Slider -->
   <script>
     const images = [
       'ffiimg.jpg',
