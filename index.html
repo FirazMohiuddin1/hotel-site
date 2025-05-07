@@ -24,13 +24,22 @@
 
     .fade-in {
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(50px);
     }
 
     .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+      animation: fadeUp 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero {
@@ -193,12 +202,13 @@
     &copy; 2025 Trivedi Hospitality. Designed for elegance.
   </footer>
 
-  <!-- Scroll Transition Script -->
+  <!-- JavaScript: Reveal on Scroll -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
