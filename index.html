@@ -2,188 +2,148 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trivedi Hospitality</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trivedi Hospitality - Animated</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    html, body {
       margin: 0;
       padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
+      overflow-x: hidden;
       font-family: 'Raleway', sans-serif;
-      background: #fff;
-      color: #222;
+      background: #000;
+      color: #fff;
     }
 
     .hero {
-      display: flex;
-      flex-wrap: wrap;
-      min-height: 100vh;
-      background-color: #f5f1e6;
-      padding: 40px 20px;
-    }
-
-    .hero .left,
-    .hero .right {
-      flex: 1 1 50%;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-    }
-
-    .hero .left img {
-      max-width: 90%;
-      height: auto;
-    }
-
-    .hero .right {
-      flex-direction: column;
-      text-align: left;
+      position: relative;
+      overflow: hidden;
     }
 
     .hero h1 {
       font-size: 3rem;
-      margin-bottom: 20px;
-      color: #2b2e4a;
+      z-index: 2;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: #444;
-      max-width: 500px;
+    #morph-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      font-weight: bold;
-      border-radius: 6px;
-      text-decoration: none;
-      background: #2b2e4a;
-      color: white;
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #444;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero .right {
-        align-items: center;
-        text-align: center;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
     }
 
     .container {
-      max-width: 1200px;
-      margin: 80px auto;
-      padding: 0 30px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
+      padding: 100px 20px;
     }
 
     .card {
+      width: 300px;
+      height: 200px;
+      background: #222;
       border-radius: 16px;
-      overflow: hidden;
-      background: #f9f9f9;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .card img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      max-height: 250px;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .card-content {
-      padding: 25px;
-    }
-
-    .card-content h2 {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-    }
-
-    footer {
-      background: #111;
-      color: #ccc;
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      margin-top: 60px;
+      margin: 40px;
+      display: inline-block;
+      perspective: 1000px;
+      cursor: grab;
+      transition: transform 0.2s;
     }
   </style>
 </head>
 <body>
+  <div class="cursor" id="cursor"></div>
 
-  <!-- Hero Section -->
   <section class="hero">
-    <div class="left">
-      <img src="https://firazmohiuddin1.github.io/hotel-site/ChatGPT%20Image%20May%207,%202025,%2002_02_45%20AM.png" alt="Trivedi Hospitality Logo" />
-    </div>
-    <div class="right">
-      <h1>Welcome to Trivedi Hospitality</h1>
-      <p>Experience warm, elegant stays with our family of hotels in Chicago Schaumburg. Thoughtfully designed for comfort and style.</p>
-      <a href="#hotels" class="btn">Explore Hotels</a>
-    </div>
+    <svg id="morph-bg" viewBox="0 0 800 600">
+      <path fill="#2b2e4a">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite"
+          values="M0,0 C400,300 400,300 800,0 L800,600 L0,600 Z;
+                  M0,0 C200,600 600,0 800,600 L800,600 L0,600 Z;
+                  M0,0 C400,300 400,300 800,0 L800,600 L0,600 Z"/>
+      </path>
+    </svg>
+    <h1>Trivedi Hospitality</h1>
   </section>
 
-  <!-- Hotel Cards -->
-  <main id="hotels" class="container">
-    <div class="card">
-      <img src="ffiimg.jpg" alt="Fairfield Hotel Photo">
-      <div class="card-content">
-        <h2>Fairfield Inn & Suites Chicago Schaumburg</h2>
-        <a class="btn" target="_blank" href="https://www.marriott.com/en-us/hotels/chizs-fairfield-inn-and-suites-chicago-schaumburg/overview/">Book Now</a>
-      </div>
-    </div>
+  <div class="container">
+    <div class="card" id="card1"></div>
+    <div class="card" id="card2"></div>
+  </div>
 
-    <div class="card">
-      <img src="https://cache.marriott.com/marriottassets/marriott/CHISG/chisg-guestroom-0043-hor-clsc.jpg" alt="TownePlace Suites">
-      <div class="card-content">
-        <h2>TownePlace Suites Chicago Schaumburg</h2>
-        <a class="btn" target="_blank" href="https://www.marriott.com/search/findHotels.mi?pageType=advanced&searchType=NearAddress&destinationAddress.location=TownePlace+Suites+Chicago+Schaumburg&nst=paid&cid=PAI_GLB0004YXD_GLE000BIM5_GLF000OETA&ppc=ppc&pId=ustbppc&gad_source=1&gad_campaignid=1658413570&gbraid=0AAAAADilnifZOA9s8qucmI9vNjIbnBLqx&gclid=Cj0KCQjw5ubABhDIARIsAHMighbFcEtuGcYriNPToS6p8hdunYs0mBqpBF2UB-CqSTn1h3mRXbAORVMaAmvmEALw_wcB&gclsrc=aw.ds&deviceType=desktop-web&view=list#/0/">Book Now</a>
-      </div>
-    </div>
-  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+  <script>
+    // Magnetic cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Trivedi Hospitality. Designed for elegance.
-  </footer>
+    // Draggable 3D Cards with Inertia
+    document.querySelectorAll('.card').forEach(card => {
+      gsap.set(card, { transformStyle: "preserve-3d" });
+      Draggable.create(card, {
+        type: "x,y",
+        inertia: true,
+        onDrag: function() {
+          gsap.to(this.target, {
+            rotateX: this.y / 10,
+            rotateY: -this.x / 10,
+            duration: 0.3
+          });
+        },
+        onRelease: function() {
+          gsap.to(this.target, {
+            rotateX: 0,
+            rotateY: 0,
+            duration: 0.6,
+            ease: "elastic.out(1, 0.3)"
+          });
+        }
+      });
+    });
 
+    // Particle explosion on click
+    document.addEventListener('click', e => {
+      for (let i = 0; i < 20; i++) {
+        const dot = document.createElement('div');
+        dot.style.position = 'fixed';
+        dot.style.left = `${e.clientX}px`;
+        dot.style.top = `${e.clientY}px`;
+        dot.style.width = '6px';
+        dot.style.height = '6px';
+        dot.style.borderRadius = '50%';
+        dot.style.background = '#fff';
+        dot.style.zIndex = 9999;
+        document.body.appendChild(dot);
+
+        gsap.to(dot, {
+          x: (Math.random() - 0.5) * 200,
+          y: (Math.random() - 0.5) * 200,
+          opacity: 0,
+          duration: 1.5,
+          onComplete: () => dot.remove()
+        });
+      }
+    });
+  </script>
 </body>
 </html>
