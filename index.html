@@ -23,18 +23,78 @@
     }
 
     .hero {
-      height: 100vh;
-      width: 100%;
-      background-color: #ffffff;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      background-color: #f5f1e6;
+      padding: 40px 20px;
+    }
+
+    .hero .left,
+    .hero .right {
+      flex: 1 1 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 20px;
     }
 
-    .hero img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
+    .hero .left img {
+      max-width: 90%;
+      height: auto;
+    }
+
+    .hero .right {
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #2b2e4a;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #444;
+      max-width: 500px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      background: #2b2e4a;
+      color: white;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #444;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero .right {
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
     }
 
     .container {
@@ -50,15 +110,9 @@
       border-radius: 16px;
       overflow: hidden;
       background: #f9f9f9;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      transform: scale(0.98);
-      opacity: 0;
-      animation: fadeUp 1s ease-out forwards;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .card:nth-child(1) { animation-delay: 0.3s; }
-    .card:nth-child(2) { animation-delay: 0.6s; }
 
     .card:hover {
       transform: scale(1.02);
@@ -80,22 +134,6 @@
       margin-bottom: 12px;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 6px;
-      text-decoration: none;
-      background: #2b2e4a;
-      color: white;
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #444;
-    }
-
     footer {
       background: #111;
       color: #ccc;
@@ -104,28 +142,24 @@
       font-size: 14px;
       margin-top: 60px;
     }
-
-    @keyframes fadeUp {
-      0% {
-        transform: translateY(20px) scale(0.95);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section with full-stretched logo image -->
+  <!-- Hero Section -->
   <section class="hero">
-    <img src="https://firazmohiuddin1.github.io/hotel-site/ChatGPT%20Image%20May%207,%202025,%2002_02_45%20AM.png" alt="Trivedi Hospitality Logo" />
+    <div class="left">
+      <img src="https://firazmohiuddin1.github.io/hotel-site/ChatGPT%20Image%20May%207,%202025,%2002_02_45%20AM.png" alt="Trivedi Hospitality Logo" />
+    </div>
+    <div class="right">
+      <h1>Welcome to Trivedi Hospitality</h1>
+      <p>Experience warm, elegant stays with our family of hotels in Chicago Schaumburg. Thoughtfully designed for comfort and style.</p>
+      <a href="#hotels" class="btn">Explore Hotels</a>
+    </div>
   </section>
 
   <!-- Hotel Cards -->
-  <main class="container">
+  <main id="hotels" class="container">
     <div class="card">
       <img src="https://firazmohiuddin1.github.io/hotel-site/Screenshot%202025-05-07%20011200.png" alt="Fairfield Hotel Photo">
       <div class="card-content">
