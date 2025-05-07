@@ -14,121 +14,125 @@
 
     body {
       font-family: 'Raleway', sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+      background: #fff;
+      color: #222;
+      scroll-behavior: smooth;
     }
 
-    header {
-      background: linear-gradient(to right, #2b2e4a, #4e4376);
+    .hero {
+      background: url('https://firazmohiuddin1.github.io/hotel-site/Screenshot%202025-05-07%20011200.png') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       color: white;
-      padding: 40px 20px;
       text-align: center;
+      padding: 20px;
     }
 
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
 
-    header p {
-      font-size: 20px;
-      color: #ddd;
+    .hero p {
+      font-size: 1.3rem;
+      color: #e0e0e0;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
 
     .container {
       max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 60px auto;
+      padding: 0 30px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
     }
 
     .card {
-      background: white;
-      border-radius: 10px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      background: #f9f9f9;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
       transition: transform 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
     }
 
     .card img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
     }
 
     .card-content {
-      padding: 20px;
+      padding: 25px;
     }
 
     .card-content h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
     }
 
-    .book-btn {
+    .btn {
       display: inline-block;
       margin-top: 15px;
-      padding: 10px 18px;
+      padding: 10px 20px;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 6px;
       text-decoration: none;
+      background: #222;
       color: white;
+      transition: 0.3s ease;
     }
 
-    .blue-btn {
-      background: #007BFF;
-    }
-
-    .brown-btn {
-      background: #8B4513;
-    }
-
-    .book-btn:hover {
-      opacity: 0.9;
+    .btn:hover {
+      background: #444;
     }
 
     footer {
-      margin-top: 50px;
-      background: #2b2e4a;
-      color: white;
+      background: #111;
+      color: #ccc;
       text-align: center;
-      padding: 20px;
+      padding: 30px;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <header>
+
+  <section class="hero">
     <h1>Trivedi Hospitality</h1>
-    <p>Book Your Stay with Comfort & Style</p>
-  </header>
+    <p>Premium Stays. Exceptional Comfort.</p>
+  </section>
 
   <main class="container">
     <div class="card">
-      <img src="https://firazmohiuddin1.github.io/hotel-site/Screenshot%202025-05-07%20011200.png" alt="Fairfield Hotel Photo" />
+      <img src="https://firazmohiuddin1.github.io/hotel-site/Screenshot%202025-05-07%20011200.png" alt="Fairfield Hotel Photo">
       <div class="card-content">
         <h2>Fairfield Inn & Suites Chicago Schaumburg</h2>
-        <a class="book-btn blue-btn" target="_blank" href="https://www.marriott.com/en-us/hotels/chizs-fairfield-inn-and-suites-chicago-schaumburg/overview/">Book Now</a>
+        <a class="btn" target="_blank" href="https://www.marriott.com/en-us/hotels/chizs-fairfield-inn-and-suites-chicago-schaumburg/overview/">Book Now</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://cache.marriott.com/marriottassets/marriott/CHISG/chisg-guestroom-0043-hor-clsc.jpg" alt="TownePlace Suites" />
+      <img src="https://cache.marriott.com/marriottassets/marriott/CHISG/chisg-guestroom-0043-hor-clsc.jpg" alt="TownePlace Suites">
       <div class="card-content">
         <h2>TownePlace Suites Chicago Schaumburg</h2>
-        <a class="book-btn brown-btn" target="_blank" href="https://www.marriott.com/search/findHotels.mi?pageType=advanced&searchType=NearAddress&destinationAddress.location=TownePlace+Suites+Chicago+Schaumburg&nst=paid&cid=PAI_GLB0004YXD_GLE000BIM5_GLF000OETA&ppc=ppc&pId=ustbppc&gad_source=1&gad_campaignid=1658413570&gbraid=0AAAAADilnifZOA9s8qucmI9vNjIbnBLqx&gclid=Cj0KCQjw5ubABhDIARIsAHMighbFcEtuGcYriNPToS6p8hdunYs0mBqpBF2UB-CqSTn1h3mRXbAORVMaAmvmEALw_wcB&gclsrc=aw.ds&deviceType=desktop-web&view=list#/0/">Book Now</a>
+        <a class="btn" target="_blank" href="https://www.marriott.com/search/findHotels.mi?pageType=advanced&searchType=NearAddress&destinationAddress.location=TownePlace+Suites+Chicago+Schaumburg&nst=paid&cid=PAI_GLB0004YXD_GLE000BIM5_GLF000OETA&ppc=ppc&pId=ustbppc&gad_source=1&gad_campaignid=1658413570&gbraid=0AAAAADilnifZOA9s8qucmI9vNjIbnBLqx&gclid=Cj0KCQjw5ubABhDIARIsAHMighbFcEtuGcYriNPToS6p8hdunYs0mBqpBF2UB-CqSTn1h3mRXbAORVMaAmvmEALw_wcB&gclsrc=aw.ds&deviceType=desktop-web&view=list#/0/">Book Now</a>
       </div>
     </div>
   </main>
 
   <footer>
-    &copy; 2025 Trivedi Hospitality. All rights reserved.
+    &copy; 2025 Trivedi Hospitality. Designed for elegance.
   </footer>
+
 </body>
 </html>
