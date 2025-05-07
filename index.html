@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="icon" type="image/png" href="trivedi-favicon.png">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Trivedi Hospitality</title>
@@ -26,8 +26,11 @@
       display: flex;
       flex-wrap: wrap;
       min-height: 100vh;
-      background-color: #f5f1e6;
       padding: 40px 20px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
     }
 
     .hero .left,
@@ -37,6 +40,18 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(245, 241, 230, 0.96);
+      z-index: 0;
     }
 
     .hero .left img {
@@ -163,9 +178,8 @@
   </style>
 </head>
 <body>
-
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="left">
       <img src="https://firazmohiuddin1.github.io/hotel-site/ChatGPT%20Image%20May%207,%202025,%2002_02_45%20AM.png" alt="Trivedi Hospitality Logo" />
     </div>
@@ -178,7 +192,6 @@
 
   <!-- Hotel Cards -->
   <main id="hotels" class="container">
-    <!-- Fairfield -->
     <div class="image-card">
       <img src="ffiimg.jpg" alt="Fairfield Hotel Photo">
       <div class="overlay">
@@ -187,7 +200,6 @@
       </div>
     </div>
 
-    <!-- TownePlace -->
     <div class="image-card">
       <img src="ChatGPT Image May 7, 2025, 04_31_36 AM.png" alt="TownePlace Suites">
       <div class="overlay">
@@ -196,7 +208,6 @@
       </div>
     </div>
 
-    <!-- Four Points -->
     <div class="image-card">
       <img src="ChatGPT fourpts Image May 7, 2025, 04_51_16 AM.png" alt="Four Points by Sheraton">
       <div class="overlay">
@@ -211,5 +222,19 @@
     &copy; 2025 Trivedi Hospitality. Designed for elegance.
   </footer>
 
+  <script>
+    const images = [
+      'ffiimg.jpg',
+      'ChatGPT Image May 7, 2025, 04_31_36 AM.png',
+      'ChatGPT fourpts Image May 7, 2025, 04_51_16 AM.png'
+    ];
+    let current = 0;
+    const hero = document.getElementById('hero');
+
+    setInterval(() => {
+      current = (current + 1) % images.length;
+      hero.style.backgroundImage = `url('${images[current]}')`;
+    }, 3000);
+  </script>
 </body>
 </html>
