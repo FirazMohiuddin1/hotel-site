@@ -25,33 +25,10 @@
     .hero {
       height: 100vh;
       background: url('https://firazmohiuddin1.github.io/hotel-site/ChatGPT%20Image%20May%207,%202025,%2002_02_45%20AM.png') center center no-repeat;
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      animation: fadeIn 2s ease-out;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      color: white;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.6);
-      opacity: 0;
-      animation: slideIn 1s ease-out 0.5s forwards;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      color: #eee;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-      opacity: 0;
-      animation: slideIn 1s ease-out 1s forwards;
     }
 
     .container {
@@ -122,22 +99,6 @@
       margin-top: 60px;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0 }
-      100% { opacity: 1 }
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
     @keyframes fadeUp {
       0% {
         transform: translateY(20px) scale(0.95);
@@ -152,11 +113,8 @@
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Trivedi Hospitality</h1>
-    <p>Premium Stays. Exceptional Comfort.</p>
-  </section>
+  <!-- Hero Section with only image -->
+  <section class="hero"></section>
 
   <!-- Hotel Cards -->
   <main class="container">
