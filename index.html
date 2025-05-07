@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trivedi Hospitality</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -12,42 +12,26 @@
       padding: 0;
     }
 
-    html {
+    html, body {
       scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Raleway', sans-serif;
       background: #fff;
       color: #222;
+      font-family: 'Raleway', sans-serif;
+      overflow-x: hidden;
     }
 
-    .fade-in {
+    section {
       opacity: 0;
-      transform: translateY(50px);
-    }
-
-    .fade-in.visible {
-      animation: fadeUp 1.2s ease-out forwards;
-    }
-
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      transform: translateY(80px);
     }
 
     .hero {
       display: flex;
       flex-wrap: wrap;
       min-height: 100vh;
-      background-color: #f5f1e6;
-      padding: 40px 20px;
+      background: linear-gradient(to right, #f5f1e6, #e9e4d8);
+      padding: 60px 30px;
+      align-items: center;
     }
 
     .hero .left,
@@ -60,40 +44,44 @@
     }
 
     .hero .left img {
-      max-width: 90%;
+      max-width: 85%;
       height: auto;
+      transform: translateY(40px);
     }
 
     .hero .right {
       flex-direction: column;
       text-align: left;
+      padding: 40px;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       margin-bottom: 20px;
       color: #2b2e4a;
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       margin-bottom: 30px;
-      color: #444;
-      max-width: 500px;
+      color: #555;
+      max-width: 520px;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 14px 28px;
       font-weight: bold;
-      border-radius: 6px;
+      font-size: 1rem;
+      border-radius: 8px;
       text-decoration: none;
       background: #2b2e4a;
       color: white;
-      transition: 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .btn:hover {
+      transform: scale(1.05);
       background: #444;
     }
 
@@ -109,11 +97,7 @@
       }
 
       .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
+        font-size: 2.4rem;
       }
     }
 
@@ -135,7 +119,7 @@
     }
 
     .card:hover {
-      transform: scale(1.02);
+      transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
 
@@ -165,9 +149,7 @@
   </style>
 </head>
 <body>
-
-  <!-- Hero Section -->
-  <section class="hero fade-in">
+  <section class="hero">
     <div class="left">
       <img src="https://firazmohiuddin1.github.io/hotel-site/ChatGPT%20Image%20May%207,%202025,%2002_02_45%20AM.png" alt="Trivedi Hospitality Logo" />
     </div>
@@ -178,9 +160,8 @@
     </div>
   </section>
 
-  <!-- Hotel Cards -->
   <main id="hotels" class="container">
-    <div class="card fade-in">
+    <div class="card">
       <img src="ffiimg.jpg" alt="Fairfield Hotel Photo">
       <div class="card-content">
         <h2>Fairfield Inn & Suites Chicago Schaumburg</h2>
@@ -188,35 +169,36 @@
       </div>
     </div>
 
-    <div class="card fade-in">
+    <div class="card">
       <img src="https://cache.marriott.com/marriottassets/marriott/CHISG/chisg-guestroom-0043-hor-clsc.jpg" alt="TownePlace Suites">
       <div class="card-content">
         <h2>TownePlace Suites Chicago Schaumburg</h2>
-        <a class="btn" target="_blank" href="https://www.marriott.com/search/findHotels.mi?pageType=advanced&searchType=NearAddress&destinationAddress.location=TownePlace+Suites+Chicago+Schaumburg&nst=paid&cid=PAI_GLB0004YXD_GLE000BIM5_GLF000OETA&ppc=ppc&pId=ustbppc&gad_source=1&gad_campaignid=1658413570&gbraid=0AAAAADilnifZOA9s8qucmI9vNjIbnBLqx&gclid=Cj0KCQjw5ubABhDIARIsAHMighbFcEtuGcYriNPToS6p8hdunYs0mBqpBF2UB-CqSTn1h3mRXbAORVMaAmvmEALw_wcB&gclsrc=aw.ds&deviceType=desktop-web&view=list#/0/">Book Now</a>
+        <a class="btn" target="_blank" href="https://www.marriott.com/search/findHotels.mi?pageType=advanced&searchType=NearAddress&destinationAddress.location=TownePlace+Suites+Chicago+Schaumburg">Book Now</a>
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     &copy; 2025 Trivedi Hospitality. Designed for elegance.
   </footer>
 
-  <!-- JavaScript: Reveal on Scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray("section, .card").forEach((el) => {
+      gsap.from(el, {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
         }
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
     });
   </script>
-
 </body>
 </html>
